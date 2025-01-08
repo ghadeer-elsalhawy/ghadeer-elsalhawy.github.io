@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghadeer Elsalhawy</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* You can change this to a modern font like 'Roboto' or 'Montserrat' */
+            background-image: url('https://images.unsplash.com/photo-1506218399165-936c45441c4b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5); /* Dimmed effect */
+        }
+        .container {
+            position: relative; /* To position text above the overlay */
+            text-align: center;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: bold; /* Bold text */
+        }
+        p {
+            font-size: 1.5em; /* Larger font size for modern look */
+            margin-bottom: 30px;
+        }
+        .countdown {
+            font-size: 2em; /* Countdown font size */
+            font-weight: bold; /* Make the countdown text bold */
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>Coming Soon!</h1>
+        <p>My portfolio is under construction. Stay tuned!</p>
+        
+        <div class="countdown" id="countdown"></div>
+    </div>
+
+    <script>
+        // Set the date we're counting down to
+        const countDownDate = new Date("February 28, 2025 23:59:59").getTime();
+
+        // Update the countdown every second
+        const x = setInterval(function() {
+
+            // Get today's date and time
+            const now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            const distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the countdown element
+            document.getElementById("countdown").innerHTML = 
+                days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            // If the countdown is over, display a message
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+                document.querySelector("h1").innerHTML = "Welcome to My Portfolio!";
+                document.querySelector("p").innerHTML = "";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
