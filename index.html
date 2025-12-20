@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ghadeer Elsalhawy</title>
+    <link rel="icon" href="asset/images/signature-dark.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="assets/images/signature-dark.png" type="image/png" sizes="32x32" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="assets/images/signature-light.png" type="image/png" sizes="32x32" media="(prefers-color-scheme: dark)">
     <link
       rel="icon"
       href="assets/signature-dark.png"
@@ -53,33 +56,54 @@
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <header class="site-header roboto-font-nav">
-    <nav class="navbar navbar-light navbar-expand custom-navbar">
-      <div class="container d-flex justify-content-center">
-    <a class="navbar-brand mb-0 d-flex align-items-center me-5" href="#">
+    <nav class="navbar navbar-light navbar-expand-md custom-navbar">
+  <div class="container-fluid roboto-font-nav">
+    <!-- Mobile: Icon on left -->
+    <a class="navbar-brand mb-0 d-md-none" href="#">
       <img src="assets/images/signature-dark.png" width="30" height="30"
-           class="d-inline-block align-top me-2" alt="Gh">
-      Ghadeer Elsalhawy
+           class="d-inline-block align-top" alt="Gh">
     </a>
-
-    <ul class="navbar-nav flex-row">
-      <li class="nav-item px-4">
-        <a class="nav-link nav-highlight" href="#">About</a>
-      </li>
-      <li class="nav-item px-4">
-        <a class="nav-link nav-highlight" href="#">Blog</a>
-      </li>
-      <li class="nav-item px-4">
-        <a class="nav-link nav-highlight" href="#">Projects</a>
-      </li>
-      <li class="nav-item px-4">
-        <a class="nav-link nav-highlight" href="#">Testimonial</a>
-      </li>
-      <li class="nav-item px-4">
-        <a class="nav-link nav-highlight" href="#">Resume</a>
-      </li>
-      </ul>
+    
+    <!-- Mobile: Hamburger on right -->
+    <button class="navbar-toggler ms-auto d-md-none" type="button"
+            data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- Desktop & Expanded Mobile Menu -->
+    <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
+      <div class="d-flex align-items-center flex-column flex-md-row">
+        <!-- Desktop: Brand with text -->
+        <a class="navbar-brand mb-0 d-none d-md-flex align-items-center me-md-5" href="#">
+          <img src="assets/images/signature-dark.png" width="30" height="30"
+               class="d-inline-block align-top me-2" alt="Gh">
+          Ghadeer Elsalhawy
+        </a>
+        
+        <!-- Menu Items -->
+        <ul class="navbar-nav flex-md-row text-center mb-0">
+          <li class="nav-item px-md-4">
+            <a class="nav-link nav-highlight" href="#">About</a>
+          </li>
+          <li class="nav-item px-md-4">
+            <a class="nav-link nav-highlight" href="#">Blog</a>
+          </li>
+          <li class="nav-item px-md-4">
+            <a class="nav-link nav-highlight" href="#">Projects</a>
+          </li>
+          <li class="nav-item px-md-4">
+            <a class="nav-link nav-highlight" href="#">Testimonial</a>
+          </li>
+          <li class="nav-item px-md-4">
+            <a class="nav-link nav-highlight" href="#">Resume</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </div>
+</nav>
     </header>
     <div>Testimonial
       <!-- moving slider -->
