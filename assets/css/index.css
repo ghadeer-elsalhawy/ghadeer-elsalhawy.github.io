@@ -111,3 +111,72 @@ body {
     );
   }
 }
+
+/* Coffee Chat Section */
+.contact-section {
+  color: rgba(232, 227, 210, 0.8);
+  padding: 4rem 1.5rem;
+  background: #4b4737;
+  border-radius: 18px;
+  width: 70%;        
+  max-width: 1200px;   
+  margin: 4rem auto;  
+}
+
+.contact-inner {
+  max-width: 1200px;  
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-title {
+  font-family: "Google Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.contact-title span {
+  color: rgba(232, 227, 210, 1); 
+}
+
+.contact-text {
+  max-width: 620px;
+  margin: 0 auto 2rem auto;
+  font-size: 1rem;
+  font-family: "Roboto";
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(232, 227, 210, 0.85);
+}
+
+.contact-cta {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-btn {
+  display: inline-block;
+  background: #fff9e6;                      
+  color: #2e2e2e;                          
+  border-radius: 999px;
+  padding: 0.75rem 1.8rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  border: 2px solid #fff9e6;               
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.contact-btn:hover {
+  background: transparent;                 
+  color: rgba(232, 227, 210, 0.95);       
+  border-color: rgba(232, 227, 210, 0.95);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
