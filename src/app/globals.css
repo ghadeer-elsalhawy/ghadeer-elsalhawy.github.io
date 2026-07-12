@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+:root {
+  --color-cream: #f5f0e3;
+  --color-cream-soft: #ede4cf;
+  --color-ink: #2b1b12;
+  --color-ink-soft: #5b4636;
+  --color-panel: #3f3b2c;
+  --color-panel-soft: #4b4737;
+  /* --color-gold: #b5822a; */
+  --color-gold: #a46b08;
+  --color-gold-soft: #d8ac5c;
+  --color-cream-btn: #fff6e0;
+  --color-line: rgba(43, 27, 18, 0.14);
+}
+
+@theme inline {
+  --color-cream: var(--color-cream);
+  --color-cream-soft: var(--color-cream-soft);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-panel: var(--color-panel);
+  --color-panel-soft: var(--color-panel-soft);
+  --color-gold: var(--color-gold);
+  --color-gold-soft: var(--color-gold-soft);
+  --color-cream-btn: var(--color-cream-btn);
+  --font-display: "Fraunces", serif;
+  --font-body: "Roboto", sans-serif;
+  --font-utility: "Space Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+  background-image: url("/images/background.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  line-height: 1.65;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+}
+
+.nav-highlight {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 4px;
+  z-index: 0;
+  overflow: hidden;
+}
+.nav-highlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-gold-soft);
+  opacity: 0.35;
+  border-radius: 3px;
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: -1;
+  transition: transform 0.25s ease;
+}
+.nav-highlight:hover::before,
+.nav-highlight[data-active="true"]::before {
+  transform: scaleX(1);
+}
+
+.tag-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-utility);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--color-ink-soft);
+  border-radius: 3px;
+  color: var(--color-ink-soft);
+  transform: rotate(-1deg);
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease;
+}
+.tag-stamp:nth-child(even) {
+  transform: rotate(1deg);
+}
+.tag-stamp:hover {
+  transform: rotate(0deg);
+  background: var(--color-ink);
+  color: var(--color-cream);
+}
+
+.paper-card {
+  background: rgba(245, 240, 227, 0.9);
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(43, 27, 18, 0.08);
+}
+
+.prose-post {
+  max-width: 68ch;
+  font-size: 1.05rem;
+}
+.prose-post h2 {
+  font-size: 1.6rem;
+  margin-top: 2.4rem;
+  margin-bottom: 0.9rem;
+}
+.prose-post h3 {
+  font-size: 1.25rem;
+  margin-top: 1.8rem;
+  margin-bottom: 0.7rem;
+}
+.prose-post p {
+  margin-bottom: 1.1rem;
+}
+.prose-post ul,
+.prose-post ol {
+  margin-bottom: 1.1rem;
+  padding-left: 1.4rem;
+}
+.prose-post li {
+  margin-bottom: 0.4rem;
+}
+.prose-post a {
+  color: var(--color-gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-post code {
+  background: var(--color-cream-soft);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-family: var(--font-utility);
+  font-size: 0.88em;
+}
+.prose-post pre {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  padding: 1.1rem 1.2rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 1.4rem;
+}
+.prose-post pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+.prose-post blockquote {
+  border-left: 3px solid var(--color-gold);
+  padding-left: 1rem;
+  font-style: italic;
+  color: var(--color-ink-soft);
+  margin-bottom: 1.1rem;
+}
