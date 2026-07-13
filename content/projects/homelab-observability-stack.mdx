@@ -1,0 +1,24 @@
+---
+title: "Homelab Observability Stack: Prometheus, Grafana, Loki, ELK"
+date: "2026-02-14"
+description: "Standing up a full observability stack on a Hyper-V/WSL2/Multipass homelab, and turning it into a detection pipeline with Falco."
+tags: ["Kubernetes", "Observability", "Security"]
+cover: "/images/projects/observability.jpg"
+---
+
+The goal wasn't just "install Grafana" — it was to build a stack that mirrors what an SRE or
+detection engineer would actually operate, and use it as the foundation for a security layer on
+top of standard observability.
+
+## What's running
+
+- **Prometheus + Grafana** for metrics and dashboards
+- **Loki** for log aggregation, paired with Promtail
+- **ELK** for a second, comparative log pipeline
+- **Falco** for runtime detection, feeding alerts that turn raw observability data into a
+  detection pipeline rather than just a monitoring one
+
+## The framing that made this click
+
+Security-focused platform engineering isn't a pivot away from DevOps/SRE — it's a layer on top of
+it. Falco rules only matter if the underlying metrics and logs pipeline is solid first.

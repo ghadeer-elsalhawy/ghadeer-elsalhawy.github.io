@@ -1,0 +1,30 @@
+---
+title: "The Flying Book — GitOps Microservices Platform"
+date: "2026-04-20"
+description: "A microservices bookstore backend built to practice production patterns: FastAPI services, Argo CD, and per-service Postgres."
+tags: ["Kubernetes", "GitOps", "FastAPI"]
+cover: "/images/projects/flying-book.jpg"
+---
+
+**الكتاب الطائر (The Flying Book)** is a microservices platform built less to ship a product and
+more to have a real system to operate — something with enough moving parts that GitOps, service
+boundaries, and observability all matter.
+
+## Architecture
+
+- FastAPI services behind a Kong API gateway
+- PostgreSQL per service, no shared database
+- Redis for caching and session state
+- Argo CD syncing manifests from a dedicated `gitops` repo
+- Stripe Connect for payments, with Paymob planned as a second-phase option for the Egyptian market
+
+## Repo layout
+
+The project is split across four repos under one GitHub organization — `app`, `infra`, `gitops`,
+and `web` — so that application code, infrastructure-as-code, and deployment state each have
+their own history and review process, the way they would on a real team.
+
+## Status
+
+Actively in progress — this write-up will get an update once the observability stack (Falco +
+detection rules layered on top of Prometheus/Grafana) is wired into this cluster specifically.

@@ -1,0 +1,31 @@
+---
+title: "Bootstrapping a 6-Node HA kubeadm Cluster on WSL2 with Terraform"
+date: "2026-06-18"
+description: "Notes on wiring up Multipass VMs, HAProxy, and kubeadm into a repeatable, Terraform-driven cluster on WSL2."
+tags: ["Kubernetes", "Terraform", "Homelab"]
+views: 214
+---
+
+I wanted a homelab cluster that actually looked like production — multiple control-plane nodes,
+a load balancer in front of the API server, and infrastructure defined in code instead of a pile
+of shell scripts I'd forget how to run in a month. This post walks through the shape of the setup.
+
+## Why kubeadm instead of k3s or minikube
+
+Managed dev clusters hide exactly the parts I wanted to practice: certificate rotation, etcd
+topology, and how the control plane behaves when a node disappears. `kubeadm` keeps all of that
+visible.
+
+## The Terraform layer
+
+Multipass VMs are provisioned declaratively, with cloud-init handling the base packages so every
+node starts from the same known state. The pattern I settled on:
+
+- A `modules/vm` module parameterized by role (`control-plane` / `worker`)
+- Remote state kept local for now, with a documented path to a remote backend
+- Outputs feeding directly into the Ansible-free `kubeadm init` / `kubeadm join` steps
+
+## What I'd change next
+
+The biggest gap right now is automated etcd backups and a proper `tflint` / Terratest pass before
+I call this "production-grade" rather than "production-shaped." Both are next on the list.
