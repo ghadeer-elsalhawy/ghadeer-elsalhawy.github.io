@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "@fontsource/fraunces/400.css";
 import "@fontsource/fraunces/500.css";
 import "@fontsource/fraunces/600.css";
@@ -16,7 +17,7 @@ import { Footer } from "@/components/layout/footer";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} — ${siteConfig.title}`,
+  title: `${siteConfig.name}`,
   description: siteConfig.tagline,
 };
 
@@ -27,6 +28,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-LMDLRVC17D"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-LMDLRVC17D');
+          `}
+        </Script>
+      </head>
       <body className="flex min-h-screen flex-col font-body antialiased">
         <Navbar />
         <main className="flex-1">{children}</main>
