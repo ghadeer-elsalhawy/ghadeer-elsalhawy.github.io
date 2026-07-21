@@ -18,7 +18,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    name: "Electrical Circuits andd Their Transient Properties",
+    name: "Electrical Circuits and Their Transient Properties",
     professor: "Prof. Asmaa Hagar",
     period: "Autumn 2025",
     screenshots: ["circuits-01.jpg", "circuits-02.jpg"],
@@ -42,6 +42,6 @@ export const studentFeedback: StudentFeedback[] = [
     quote:
       "Thank you for your clear explanation and support .The sessions were very helpful and made the topics easy to understand.",
     studentName: "Student, Computer Engineering Department",
-    course: "Electrical Circuits andd Their Transient Properties",
+    course: "Electrical Circuits and Their Transient Properties",
   },
 ];
