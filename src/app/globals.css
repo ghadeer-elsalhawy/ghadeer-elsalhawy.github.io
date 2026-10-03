@@ -130,6 +130,25 @@ h4 {
   max-width: 68ch;
   font-size: 1.05rem;
 }
+.blog-prose {
+  position: relative;
+  isolation: isolate;
+}
+.blog-prose::before {
+  position: absolute;
+  z-index: -1;
+  inset: -3rem -4rem;
+  background: rgba(243, 233, 221, 0.3);
+  filter: blur(28px);
+  mask-image:
+    linear-gradient(to right, transparent, #000 12%, #000 88%, transparent),
+    linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+  mask-composite: intersect;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  content: "";
+  pointer-events: none;
+}
 .prose-post h2 {
   font-size: 1.6rem;
   margin-top: 2.4rem;

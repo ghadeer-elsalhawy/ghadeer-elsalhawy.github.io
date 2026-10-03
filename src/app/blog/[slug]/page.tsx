@@ -61,7 +61,7 @@ export default async function BlogPostPage({
         </div>
       </header>
 
-      <div className="prose-post">
+      <div className="prose-post blog-prose">
         <MDXRemote
           source={post.content}
           options={{
