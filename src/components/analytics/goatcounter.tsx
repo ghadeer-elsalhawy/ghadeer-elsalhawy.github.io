@@ -72,7 +72,7 @@ export function GoatCounterViewCount({ path }: { path: string }) {
 
     const controller = new AbortController();
     const normalizedPath = normalizePath(path);
-    const counterUrl = `${siteUrl.replace(/\/+$/, "")}/counter/${encodeURI(normalizedPath)}.json`;
+    const counterUrl = `${siteUrl.replace(/\/+$/, "")}/counter${encodeURI(normalizedPath)}.json`;
 
     fetch(counterUrl, { signal: controller.signal })
       .then(async (response) => {
