@@ -143,10 +143,21 @@ h4 {
 .prose-post p {
   margin-bottom: 1.1rem;
 }
+.prose-post img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
 .prose-post ul,
 .prose-post ol {
   margin-bottom: 1.1rem;
   padding-left: 1.4rem;
+}
+.prose-post ul {
+  list-style-type: disc;
+}
+.prose-post ol {
+  list-style-type: decimal;
 }
 .prose-post li {
   margin-bottom: 0.4rem;
@@ -155,6 +166,15 @@ h4 {
   color: var(--color-gold);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+.prose-post .photo-credit {
+  margin-top: -0.6rem;
+}
+.prose-post .photo-credit a {
+  color: var(--color-ink);
+}
+.prose-post .photo-credit a:hover {
+  color: var(--color-gold);
 }
 .prose-post code {
   background: var(--color-cream-soft);

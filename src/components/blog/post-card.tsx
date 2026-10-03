@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { CalendarDays, Clock3, Eye } from "lucide-react";
 import { Post, formatDate } from "@/lib/post-types";
 import { TagList } from "@/components/ui/tag";
@@ -31,17 +32,30 @@ export function PostCard({
   return (
     <Link
       href={`/${basePath}/${post.slug}`}
-      className="paper-card group block h-full p-6 transition hover:-translate-y-0.5 hover:shadow-lg"
+      className="paper-card group block h-full overflow-hidden transition hover:-translate-y-0.5 hover:shadow-lg"
     >
-      <PostMeta post={post} />
-      <h3 className="mt-3 font-display text-xl font-semibold leading-snug group-hover:text-[var(--color-gold)]">
-        {post.frontmatter.title}
-      </h3>
-      <p className="mt-2 text-sm text-[var(--color-ink-soft)] line-clamp-3">
-        {post.frontmatter.description}
-      </p>
-      <div className="mt-4">
-        <TagList tags={post.frontmatter.tags} />
+      {post.frontmatter.cover && (
+        <div className="relative aspect-video">
+          <Image
+            src={post.frontmatter.cover}
+            alt=""
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover"
+          />
+        </div>
+      )}
+      <div className="p-6">
+        <PostMeta post={post} />
+        <h3 className="mt-3 font-display text-xl font-semibold leading-snug group-hover:text-[var(--color-gold)]">
+          {post.frontmatter.title}
+        </h3>
+        <p className="mt-2 text-sm text-[var(--color-ink-soft)] line-clamp-3">
+          {post.frontmatter.description}
+        </p>
+        <div className="mt-4">
+          <TagList tags={post.frontmatter.tags} />
+        </div>
       </div>
     </Link>
   );
