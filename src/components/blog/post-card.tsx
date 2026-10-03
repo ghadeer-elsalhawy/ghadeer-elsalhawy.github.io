@@ -3,8 +3,15 @@ import Image from "next/image";
 import { CalendarDays, Clock3, Eye } from "lucide-react";
 import { Post, formatDate } from "@/lib/post-types";
 import { TagList } from "@/components/ui/tag";
+import { GoatCounterViewCount } from "@/components/analytics/goatcounter";
 
-export function PostMeta({ post }: { post: Post }) {
+export function PostMeta({
+  post,
+  viewCountPath,
+}: {
+  post: Post;
+  viewCountPath?: string;
+}) {
   return (
     <div className="flex flex-wrap items-center gap-x-4 gap-y-1 font-utility text-xs text-[var(--color-ink-soft)]">
       <span className="inline-flex items-center gap-1.5">
@@ -13,11 +20,13 @@ export function PostMeta({ post }: { post: Post }) {
       <span className="inline-flex items-center gap-1.5">
         <Clock3 size={13} /> {post.readingMinutes} min read
       </span>
-      {typeof post.frontmatter.views === "number" && (
+      {viewCountPath ? (
+        <GoatCounterViewCount path={viewCountPath} />
+      ) : typeof post.frontmatter.views === "number" ? (
         <span className="inline-flex items-center gap-1.5">
           <Eye size={13} /> {post.frontmatter.views.toLocaleString()} reads
         </span>
-      )}
+      ) : null}
     </div>
   );
 }
@@ -46,7 +55,10 @@ export function PostCard({
         </div>
       )}
       <div className="p-6">
-        <PostMeta post={post} />
+        <PostMeta
+          post={post}
+          viewCountPath={basePath === "blog" ? `/blog/${post.slug}` : undefined}
+        />
         <h3 className="mt-3 font-display text-xl font-semibold leading-snug group-hover:text-[var(--color-gold)]">
           {post.frontmatter.title}
         </h3>

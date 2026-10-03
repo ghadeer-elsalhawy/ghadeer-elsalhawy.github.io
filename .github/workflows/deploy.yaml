@@ -31,6 +31,8 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          NEXT_PUBLIC_GOATCOUNTER_URL: ${{ vars.NEXT_PUBLIC_GOATCOUNTER_URL }}
         run: npm run build
 
       - name: Setup Pages

@@ -49,7 +49,7 @@ export default async function BlogPostPage({
   return (
     <article className="mx-auto max-w-3xl px-5 py-16">
       <header className="mb-10">
-        <PostMeta post={post} />
+        <PostMeta post={post} viewCountPath={`/blog/${post.slug}`} />
         <h1 className="mt-3 font-display text-3xl font-semibold sm:text-4xl">
           {post.frontmatter.title}
         </h1>
